@@ -9,10 +9,13 @@ const startfp = async () => {
   let screen = await screenfp()
   let webglparams = await webglfp()
   let fonts = await fontsfp()
-  let json = JSON.stringify({navigator,screen,webglparams,fonts})
-  xhr.open("POST", 'http://192.168.1.53:8888/create', true)
-  xhr.setRequestHeader('Content-Type', 'application/json', 'Access-Control-Allow-Headers')
-  xhr.send(json);
+  //let json = JSON.stringify({navigator,screen,webglparams,fonts})
+  //let data = btoa(JSON.stringify({navigator,screen,webglparams,fonts}))
+  let data = 'data=' + encodeURIComponent(btoa(JSON.stringify({navigator,screen,webglparams,fonts})))
+  xhr.open("POST", 'http://localhost:8888/create', true)
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded', 'Access-Control-Allow-Headers')
+  xhr.send(data);
+  //xhr.send(json)
 }
 
 startfp()
