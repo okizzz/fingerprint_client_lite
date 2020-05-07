@@ -1,4 +1,5 @@
-const navigator = () => {
+const navigator = async () => {
+
   let nv = window.navigator
   let navigatorParametr = {}
 
@@ -43,6 +44,8 @@ const navigator = () => {
   //navigatorParametr.webkitPersistentStorage = nv.webkitPersistentStorage
   //navigatorParametr.webkitTemporaryStorage = nv.webkitTemporaryStorage
   navigatorParametr.webdriver = nv.webdriver
+  
+  await nv.mediaDevices.enumerateDevices().then((letDevices) => {navigatorParametr.mediaDevices = letDevices})
 
   return(navigatorParametr)
 }

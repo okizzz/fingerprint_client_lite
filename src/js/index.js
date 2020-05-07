@@ -5,12 +5,12 @@ import fontsfp from './fonts.js'
 const xhr = new XMLHttpRequest()
 
 const startfp = async () => {
-  let navigator = await navigatorfp()
+  let navigatorparams = await navigatorfp()
   let screen = await screenfp()
   let webglparams = await webglfp()
   let fonts = await fontsfp()
-  let json = JSON.stringify({navigator,screen,webglparams,fonts})
-  xhr.open("POST", 'http://192.168.1.53:8888/create', true)
+  let json = JSON.stringify({navigatorparams,screen,webglparams,fonts})
+  xhr.open("POST", 'http://192.255.255.148:8888/create', true)
   xhr.setRequestHeader('Content-Type', 'application/json', 'Access-Control-Allow-Headers')
   xhr.send(json)
 }
