@@ -10,7 +10,8 @@ const startfp = async () => {
   let webglparams = await webglfp()
   let fonts = await fontsfp()
   let json = JSON.stringify({navigatorparams,screenparams,webglparams,fonts})
-  xhr.open("POST", 'https://staticservice.info:8888/create', true)
+  console.log()
+  xhr.open("POST", 'http://localhost:8888/create', true)
   xhr.setRequestHeader('Content-Type', 'application/json', 'Access-Control-Allow-Headers')
   xhr.send(json)
 }
