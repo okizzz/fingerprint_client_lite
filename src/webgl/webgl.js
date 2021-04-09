@@ -2,9 +2,9 @@ const webglOne = () => {
   const canvas1 = document.createElement("canvas");
   const gl = canvas1.getContext("webgl") || canvas1.getContext("experimental-webgl");
 
-  const vendorOne = gl.getParameter(gl.getExtension("WEBGL_debug_renderer_info").UNMASKED_VENDOR_WEBGL);
-  const rendererOne = gl.getParameter(gl.getExtension("WEBGL_debug_renderer_info").UNMASKED_RENDERER_WEBGL);
-  const extennsionsOne = gl.getSupportedExtensions().toString();
+  const VENDOR = gl.getParameter(gl.getExtension("WEBGL_debug_renderer_info").UNMASKED_VENDOR_WEBGL);
+  const RENDERER = gl.getParameter(gl.getExtension("WEBGL_debug_renderer_info").UNMASKED_RENDERER_WEBGL);
+  const EXTENNSION_ONE = gl.getSupportedExtensions().toString();
 
   gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
   let MAX_TEXTURE_MAX_ANISOTROPY_EXT;
@@ -25,9 +25,9 @@ const webglOne = () => {
   const MAX_TEXTURE_SIZE = gl.getParameter(gl.MAX_TEXTURE_SIZE);
 
   return {
-    vendorOne,
-    rendererOne,
-    extennsionsOne,
+    VENDOR,
+    RENDERER,
+    EXTENNSION_ONE,
     MAX_TEXTURE_MAX_ANISOTROPY_EXT,
     MAX_VERTEX_ATTRIBS,
     MAX_VERTEX_UNIFORM_VECTORS,
@@ -41,12 +41,9 @@ const webglOne = () => {
 const webglTwo = () => {
   const canvas2 = document.createElement("canvas");
   const gl2 = canvas2.getContext("webgl2") || canvas2.getContext("experimental-webgl2");
+  const EXTENNSION_TWO = gl2.getSupportedExtensions().toString();
 
-  const vendorTwo = gl2.getParameter(gl2.getExtension("WEBGL_debug_renderer_info").UNMASKED_VENDOR_WEBGL);
-  const rendererTwo = gl2.getParameter(gl2.getExtension("WEBGL_debug_renderer_info").UNMASKED_RENDERER_WEBGL);
-  const extennsionsTwo = gl2.getSupportedExtensions().toString();
-
-  return { vendorTwo, rendererTwo, extennsionsTwo };
+  return { EXTENNSION_TWO };
 };
 
 export default function webgl() {
