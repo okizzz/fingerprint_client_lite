@@ -41,9 +41,8 @@ const webglOne = () => {
 const webglTwo = () => {
   const canvas2 = document.createElement("canvas");
   const gl2 = canvas2.getContext("webgl2") || canvas2.getContext("experimental-webgl2");
-  const EXTENNSION_TWO = gl2.getSupportedExtensions().toString();
-
-  return { EXTENNSION_TWO };
+  if (gl2) return gl2.getSupportedExtensions().toString();
+  return null;
 };
 
 export default function webgl() {
