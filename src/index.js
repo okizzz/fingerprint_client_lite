@@ -1,6 +1,6 @@
-import webglfp from "./js/webgl/webgl.js";
-import fontsfp from "./js/fonts/fonts.js";
-import browserfp from "./js/browser/browserParams.js";
+import webglfp from "./modules/webgl/webgl.js";
+import fontsfp from "./modules/fonts/fonts.js";
+import browserfp from "./modules/browser/browserParams.js";
 
 const xhr = new XMLHttpRequest();
 
