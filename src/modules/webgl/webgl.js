@@ -41,10 +41,10 @@ const webglOne = () => {
 const webglTwo = () => {
   const canvas2 = document.createElement("canvas");
   const gl2 = canvas2.getContext("webgl2") || canvas2.getContext("experimental-webgl2");
-  if (gl2){ 
-     let EXTENNSION_ONE = gl2.getSupportedExtensions().toString();
-     return EXTENNSION_ONE
-  }  
+  if (gl2) {
+    let EXTENNSION_ONE = gl2.getSupportedExtensions().toString();
+    return { EXTENNSION_ONE };
+  }
   return null;
 };
 
